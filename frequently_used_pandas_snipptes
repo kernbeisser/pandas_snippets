@@ -1,0 +1,27 @@
+# reverse column names:
+ethereum_reversed.loc[:, ::-1]
+
+# reverse df order:
+ethereum_reversed[::-1]
+
+# reindex of a reversed df:
+ethereum_reversed = ethereum.loc[::-1].reset_index(drop=True)
+
+# replace spaces in column names with '_':
+third.columns.str.replace(' ', '_')
+
+# quick 4x8 df with column names:
+df = pd.DataFrame(np.random.rand(4, 8), columns=list('ABCDEFGH'))
+
+# reformat date column:
+crypto_cur.loc[:, 'Date'] = pd.to_datetime(crypto_cur.Date, format=("%b %d, %Y"))
+
+# remove comma from numbers:
+for w in crypto_cur.columns[2:]:
+    crypto_cur[w] = crypto_cur[w].str.replace(',', '')
+
+# convert opject type (string) to float:
+for w in crypto_cur.columns[2:]:
+    crypto_cur[w] = crypto_cur[w].astype('float64')
+
+
